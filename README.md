@@ -57,7 +57,7 @@ Generamos un apartado de **superusuario** el cual será capaz de loguearse y edi
 
 ---
 
-## 3. Descripción de módulos
+## 2.2 Descripción de módulos
 
 | Nombre del módulo          | Roles  | Descripción |
 |----------------------------|--------|-------------|
@@ -70,6 +70,16 @@ Generamos un apartado de **superusuario** el cual será capaz de loguearse y edi
 | Gestión de artículos       | Admin  | El administrador puede dar de alta o baja a artículos que estén en el sistema. |
 | Ver lista de precios       | Admin, Vendedor | Ambos pueden ver la lista de precios. |
 | Búsqueda por nombre        | Admin, Vendedor | Ambos pueden buscar artículos por nombre. |
+
+## 2.3 Historias de usuario
+
+Como administrador, quiero tener un login para poder acceder a la página y administrar las listas.
+Como vendedor, quiero poder ver las listas para ver los precios.
+Como vendedor, quiero poder buscar un artículo para ver el precio del mismo de una forma rápida y eficiente.
+Como administración, quiero cargar la lista de precios para actualizar la lista de precios. 
+Como administración, quiero cambiar la contraseña para generar una nueva en caso de olvido.
+Como administración, quiero borrar los artículos para dejar solo los que trabajamos.
+Como administración, quiero editar los datos para corregir los precios.
 
 ---
 
