@@ -1,0 +1,140 @@
+openapi: 3.0.4
+info:
+  title: Swagger Listly
+  description: |-
+    This is a contract for Listly's API.
+
+    Link to github repository:
+    - [https://github.com/helter985/acs-2025-orange](https://github.com/helter985/acs-2025-orange)
+
+  version: 1.0.12
+
+paths:
+  /products:
+
+    get:
+      tags:
+        - products
+      summary: Get all products.
+      description: Get all products.
+      operationId: getProducts
+      parameters:
+        - name: bar-code
+          in: query
+          description: Bar-code of the product to return
+          schema:
+            type: integer
+            format: int64
+            
+        - name: name
+          in: query
+          description: Name of the product to return
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '204':
+          description: Product not found with name or bar-code
+        '400':
+          description: Invalid input
+        '422':
+          description: Validation exception
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /products/{productId}:
+    get:
+      tags:
+        - products
+      summary: Find product by ID.
+      description: Returns a single products.
+      operationId: getproductById
+      parameters:
+        - name: productId
+          in: path
+          description: ID of products to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Product not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+        name:
+          type: string
+          example: Yerba
+        price:
+          type: integer
+          format: int32
+          example: 7
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+        message:
+          type: string
+      xml:
+        name: '##default'
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - code
+        - message
+  requestBodies:
+    products:
+      description: products object that needs to be added to the store
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Product'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Product'
