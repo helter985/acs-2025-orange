@@ -176,6 +176,7 @@ Generamos un apartado de **superusuario** el cual será capaz de loguearse y edi
 ### 3.1 Arquitectura
 
 Arquitectura
+![Arquitectura](/docs/arquitectura.jpeg)
 
 La aplicación está diseñada bajo una arquitectura cliente-servidor, utilizando un servidor API REST que actúa como intermediario entre los clientes (vendedores) y la base de datos.  
 El cliente realiza consultas, como búsqueda de productos o visualización de listas de precios, que son procesadas por el servidor y respondidas con los datos necesarios.
@@ -186,4 +187,4 @@ Tanto el cliente como el panel administrativo interactúan con una base de datos
 
 ## 3.2 Definicion de API
 
-[Contrato](api_contract.yaml)
+[Contrato](/docs/api_contract.yaml)
