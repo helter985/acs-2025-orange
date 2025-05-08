@@ -83,3 +83,107 @@ Generamos un apartado de **superusuario** el cual será capaz de loguearse y edi
 
 ---
 
+## 2.4 Casos de prueba
+
+### 1. Login del Administrador
+- ID: TC-ADM-001  
+- Historia: Como administrador, quiero tener un login para poder acceder a la página y administrar las listas.  
+- Pasos a seguir:
+  1. Ir a la página de login.
+  2. Ingresar usuario y contraseña válidos.
+  3. Hacer clic en "Iniciar sesión".
+- Datos esperados: Usuario y contraseña válidos.  
+- Resultado esperado: Se accede al panel de administración.
+
+---
+
+### 2. Visualizar listas de precios (vendedor)
+- ID: TC-VEND-001  
+- Historia: Como vendedor, quiero poder ver las listas para ver los precios.  
+- Pasos a seguir:
+  1. Navegar a la sección de lista de precios.
+- Datos esperados: Lista de precios actual.  
+- Resultado esperado: Se visualizan los productos y sus precios correctamente.
+
+---
+
+### 3. Buscar artículo (vendedor)
+- ID: TC-VEND-002  
+- Historia: Como vendedor, quiero poder buscar un artículo para ver el precio del mismo de una forma rápida y eficiente.  
+- Pasos a seguir:
+  1. Ir a la sección de búsqueda.
+  2. Ingresar el nombre del producto y buscar.
+- Datos esperados: Nombre de un artículo existente.  
+- Resultado esperado: Se muestra el artículo buscado junto a su precio.
+
+---
+
+### 4. Cargar lista de precios (administrador)
+- ID: TC-ADM-002  
+- Historia: Como administración, quiero cargar la lista de precios para actualizar la lista de precios.  
+- Pasos a seguir:
+  1. Iniciar sesión como administrador.
+  2. Ir a la sección "Cargar lista de precios".
+  3. Seleccionar archivo (Excel, PDF, etc.) válido.
+  4. Confirmar la carga.
+- Datos esperados: Archivo con estructura válida.  
+- Resultado esperado: Se actualiza la lista de precios y se muestra mensaje de confirmación.
+
+---
+
+### 5. Cambiar contraseña (administrador)
+- ID: TC-ADM-003  
+- Historia: Como administración, quiero cambiar la contraseña para generar una nueva en caso de olvido.  
+- Pasos a seguir:
+  1. Iniciar sesión.
+  2. Ir a "Configuración de cuenta".
+  3. Seleccionar "Cambiar contraseña".
+  4. Ingresar la contraseña actual, la nueva y confirmar.
+- Datos esperados: Contraseña actual correcta, nueva válida.  
+- Resultado esperado: La contraseña se actualiza correctamente.
+
+---
+
+### 6. Borrar artículo (administrador)
+- ID: TC-ADM-004  
+- Historia: Como administración, quiero borrar los artículos para dejar solo los que trabajamos.  
+- Pasos a seguir:
+  1. Iniciar sesión como administrador.
+  2. Ir a la sección de artículos.
+  3. Seleccionar un artículo.
+  4. Hacer clic en "Eliminar".
+- Datos esperados: Artículo existente y seleccionable.  
+- Resultado esperado: El artículo se elimina y desaparece de la lista.
+
+---
+
+### 7. Editar artículo (administrador)
+- ID: TC-ADM-005  
+- Historia: Como administración, quiero editar los datos para corregir los precios.  
+- Pasos a seguir:
+  1. Iniciar sesión como administrador.
+  2. Ir a la sección de productos.
+  3. Seleccionar un producto.
+  4. Modificar su precio o información.
+  5. Guardar cambios.
+- Datos esperados: Precio válido, artículo existente.  
+- Resultado esperado: Se actualizan los datos y se reflejan en la lista de precios.
+
+---
+
+## 3. Especificaciones
+
+### 3.1 Arquitectura
+
+Arquitectura
+
+La aplicación está diseñada bajo una arquitectura cliente-servidor, utilizando un servidor API REST que actúa como intermediario entre los clientes (vendedores) y la base de datos.  
+El cliente realiza consultas, como búsqueda de productos o visualización de listas de precios, que son procesadas por el servidor y respondidas con los datos necesarios.
+
+Por otro lado, el administrador accede a un panel de gestión desarrollado bajo el patrón MVC (Modelo-Vista-Controlador), que permite cargar listas de precios, editar o eliminar artículos y gestionar usuarios.
+
+Tanto el cliente como el panel administrativo interactúan con una base de datos centralizada, donde se almacena toda la información del sistema.
+
+## 3.2 Definicion de API
+
+[Contrato](api_contract.yaml)
