@@ -1,2 +1,4 @@
-fastapi[standard]==0.115.12
-SQLAlchemy==2.0.40
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+flask-marshmallow
