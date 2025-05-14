@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Flask==3.1.0
 flask-marshmallow==1.3.0
 Flask-Migrate==4.1.0
@@ -7,3 +8,9 @@ marshmallow-sqlalchemy==1.4.2
 python-dotenv==1.1.0
 SQLAlchemy==2.0.40
 
+=======
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+flask-marshmallow
+>>>>>>> 91fc2916beaff86ea968b9e4c40f74de13d03385
