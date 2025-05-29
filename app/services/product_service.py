@@ -16,9 +16,4 @@ class ProductService:
         return self.__repo.find_by_name(name)
 
     def find_by_bar_code(self, bar_code) -> list:
-<<<<<<< HEAD
         return self.__repo.find_by_bar_code(bar_code)    
-=======
-        return self.__repo.find_by_bar_code(bar_code)
-    
->>>>>>> 91fc2916beaff86ea968b9e4c40f74de13d03385
