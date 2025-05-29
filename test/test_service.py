@@ -32,5 +32,20 @@ class ProductTestCase(unittest.TestCase):
         self.assertEqual(product.bar_code, '77912')
         self.assertEqual(product.price, 4000.0)
 
+
+    @patch('app.services.ProductService')
+    def test_find_by_name(self, mock_service):
+        mock_product = Mock()
+        mock_product.name = 'Coca Cola'
+        mock_product.bar_code = '77912'
+        mock_product.price = 4000.0
+        mock_service.find_by_name.return_value = [mock_product]
+
+        product = mock_service.find_by_name('Coca Cola')
+        self.assertEqual(product[0].name, 'Coca Cola')
+        self.assertEqual(product[0].bar_code, '77912')
+        self.assertEqual(product[0].price, 4000.0)
+
+
 if __name__ == '__main__':
   unittest.main()
