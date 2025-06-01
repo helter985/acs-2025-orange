@@ -13,7 +13,6 @@ class ConnectionTestCase(unittest.TestCase):
     
     def tearDown(self) -> None:
         db.session.remove()
-        db.drop_all()
         self.app_context.pop()
     
     def test_db_connection(self):

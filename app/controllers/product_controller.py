@@ -29,10 +29,15 @@ def get_by_name(name):
         return jsonify({'message': 'No se encontraron productos con ese nombre'}), 404
     return jsonify(products_schema.dump(products), 200)
 
-@product.route('/products/barcode/<string:bar_code>', methods=['GET'])
+@product.route('/products/bar-code/<string:bar_code>', methods=['GET'])
 def get_by_bar_code(bar_code):
     product = service.find_by_bar_code(bar_code)
     if not product:
-        return jsonify({'message': 'No se encontró producto con ese código de barras'}), 404
-    return jsonify(product_schema.dump(product))
+        response = jsonify({'message': 'Producto no encontrado'})
+        response.status_code = 404
+        return response
+    response = product_schema.dump(product)
+    response = jsonify(response)
+    response.status_code = 200
+    return response
 
