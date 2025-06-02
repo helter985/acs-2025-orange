@@ -11,7 +11,22 @@ class ProductControllerTestCase(unittest.TestCase):
         self.app_context = self.app.app_context()
         self.app_context.push()
         self.mock_product = {'id': 1, 'name': 'Coca Cola','bar_code':'77912', 'price': 4000.0}
-        
+        self.mock_products = [
+            {'id': 1, 'name': 'Coca Cola', 'bar_code': '77912', 'price': 4000.0},
+            {'id': 2, 'name': 'Pepsi', 'bar_code': '77913', 'price': 3500.0}
+        ]
+
+
+
+    @patch('app.controllers.product_controller.service.find_all')
+    def test_get_all_success(self, mock_find_all):
+        mock_find_all.return_value = self.mock_products
+
+        response = self.client.get('/api/v1/products')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.get_json(), self.mock_products)
+
+
 
     @patch('app.controllers.product_controller.service.find_by_id')
     def test_get_by_id_success(self, mock_find_by_id):
@@ -28,6 +43,7 @@ class ProductControllerTestCase(unittest.TestCase):
         response = self.client.get('/api/v1/products/999')
         self.assertEqual(response.status_code, 404)
         self.assertEqual(response.get_json(), {'message': 'Producto no encontrado'})
+
 
     
     @patch('app.controllers.product_controller.service.find_by_bar_code')
