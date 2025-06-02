@@ -35,6 +35,25 @@ class ProductServiceTestCase(unittest.TestCase):
         self.assertEqual(result[0].bar_code, '77912')
         self.assertEqual(result[0].price, 4000.0)
 
+    @patch('app.repositories.product_repository.ProductRepository.find_by_id')
+    def test_find_by_id(self, mock_find_by_id):
+        mock_find_by_id.return_value = self.mock_product
+        service = ProductService()
+        product = service.find_by_id('0')
+        self.assertEqual(product.name, 'Coca Cola')
+        self.assertEqual(product.bar_code, '77912')
+        self.assertEqual(product.price, 4000.0)
+
+    @patch('app.repositories.product_repository.ProductRepository.find_all')
+    def test_find_all(self, mock_find_all):
+        mock_find_all.return_value = [self.mock_product]
+        service = ProductService()
+        result = service.find_all()
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0].name, 'Coca Cola')
+        self.assertEqual(result[0].bar_code, '77912')
+        self.assertEqual(result[0].price, 4000.0)
+
 if __name__ == '__main__':
     unittest.main()
 
