@@ -73,7 +73,7 @@ Generamos un apartado de **superusuario** el cual será capaz de loguearse y edi
 
 ## 2.3 Historias de usuario
 
-* Como administrador, quiero tener un login para poder acceder a la página y administrar las listas.
+* US-ADM-001: Como administrador, quiero tener un login para poder acceder a la página y administrar las listas.
 * Como vendedor, quiero poder ver las listas para ver los precios.
 * Como vendedor, quiero poder buscar un artículo para ver el precio del mismo de una forma rápida y eficiente.
 * Como administración, quiero cargar la lista de precios para actualizar la lista de precios. 
