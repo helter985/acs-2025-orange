@@ -74,12 +74,12 @@ Generamos un apartado de **superusuario** el cual será capaz de loguearse y edi
 ## 2.3 Historias de usuario
 
 * US-ADM-001: Como administrador, quiero tener un login para poder acceder a la página y administrar las listas.
-* Como vendedor, quiero poder ver las listas para ver los precios.
-* Como vendedor, quiero poder buscar un artículo para ver el precio del mismo de una forma rápida y eficiente.
-* Como administración, quiero cargar la lista de precios para actualizar la lista de precios. 
-* Como administración, quiero cambiar la contraseña para generar una nueva en caso de olvido.
-* Como administración, quiero borrar los artículos para dejar solo los que trabajamos.
-* Como administración, quiero editar los datos para corregir los precios.
+* US-VDD-001: Como vendedor, quiero poder ver las listas para ver los precios.
+* US-VDD-002: Como vendedor, quiero poder buscar un artículo para ver el precio del mismo de una forma rápida y eficiente.
+* US-ADM-002: Como administración, quiero cargar la lista de precios para actualizar la lista de precios. 
+* US-ADM-003: Como administración, quiero cambiar la contraseña para generar una nueva en caso de olvido.
+* US-ADM-004: Como administración, quiero borrar los artículos para dejar solo los que trabajamos.
+* US-ADM-005: Como administración, quiero editar los datos para corregir los precios.
 
 ---
 
